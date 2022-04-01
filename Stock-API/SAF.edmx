@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SAFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SAF_BIENPATRIMONIO">
+          <Key>
+            <PropertyRef Name="IdBienPatrimonio" />
+          </Key>
+          <Property Name="IdBienPatrimonio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatDescrip" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdUnidad" Type="int" Nullable="false" />
+          <Property Name="IdTipo" Type="int" />
+          <Property Name="PatFechaAlta" Type="smalldatetime" Nullable="false" />
+          <Property Name="PatFechaUnidad" Type="smalldatetime" Nullable="false" />
+          <Property Name="PatFechaBaja" Type="smalldatetime" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="IdSecretariaGeneral" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdResponsable" Type="int" Nullable="false" />
+          <Property Name="PatCantidad" Type="int" Nullable="false" />
+          <Property Name="PatUbicacion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="PatFoto" Type="varchar" MaxLength="50" />
+          <Property Name="IdInciso" Type="smallint" />
+          <Property Name="IdPartidaPrincipal" Type="smallint" />
+          <Property Name="IdPartidaParcial" Type="smallint" />
+          <Property Name="IdClase" Type="smallint" />
+          <Property Name="IdItem" Type="smallint" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IdOrigen" Type="smallint" />
+          <Property Name="Etiqueta" Type="bit" Nullable="false" />
+          <Property Name="PeriodoAmortiz" Type="int" />
+          <Property Name="InicioAmortiz" Type="int" />
+          <Property Name="IdClasificacion" Type="int" />
+          <Property Name="IdMotivoBaja" Type="int" />
+          <Property Name="FechaEtiquetado" Type="smalldatetime" />
+          <Property Name="Devengado" Type="bit" />
+          <Property Name="FisicoContable" Type="bit" />
+          <Property Name="IdBienUsoGenerico" Type="int" />
+          <Property Name="Ubicado" Type="bit" />
+          <Property Name="FechaUbicado" Type="smalldatetime" />
+          <Property Name="MesInicioAmortiz" Type="int" />
+          <Property Name="FechaRelevadoColector" Type="smalldatetime" />
+          <Property Name="ObservacionesColector" Type="text" />
+          <Property Name="IdUsuarioACargo" Type="int" />
+          <Property Name="Sincronizado" Type="bit" />
+          <Property Name="Partes" Type="smallint" />
+        </EntityType>
+        <Function Name="SAF_BIENPATRIMONIO_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBienPatrimonio" Type="int" Mode="In" />
+          <Parameter Name="IdTipo" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="FechaDesde" Type="smalldatetime" Mode="In" />
+          <Parameter Name="FechaHasta" Type="smalldatetime" Mode="In" />
+          <Parameter Name="IdUnidad" Type="int" Mode="In" />
+          <Parameter Name="IdEstado" Type="int" Mode="In" />
+          <Parameter Name="IdResponsable" Type="int" Mode="In" />
+          <Parameter Name="IdInciso" Type="int" Mode="In" />
+          <Parameter Name="IdPartidaPrincipal" Type="int" Mode="In" />
+          <Parameter Name="IdPartidaParcial" Type="int" Mode="In" />
+          <Parameter Name="IdClase" Type="int" Mode="In" />
+          <Parameter Name="IdItem" Type="int" Mode="In" />
+          <Parameter Name="IdOrigen" Type="smallint" Mode="In" />
+          <Parameter Name="Etiqueta" Type="smallint" Mode="In" />
+          <Parameter Name="IdSecretariaGeneral" Type="varchar" Mode="In" />
+          <Parameter Name="FechaAltaDesde" Type="smalldatetime" Mode="In" />
+          <Parameter Name="FechaAltaHasta" Type="smalldatetime" Mode="In" />
+          <Parameter Name="Ubicado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SAF_BIENPATRIMONIO_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBienPatrimonio" Type="int" Mode="In" />
+          <Parameter Name="IdBienPatrimoniohasta" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SAF_BIENPATRIMONIO_Upd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBienPatrimonio" Type="int" Mode="In" />
+          <Parameter Name="PatDescrip" Type="varchar" Mode="In" />
+          <Parameter Name="IdTipo" Type="int" Mode="In" />
+          <Parameter Name="IdEstado" Type="int" Mode="In" />
+          <Parameter Name="IdUnidad" Type="int" Mode="In" />
+          <Parameter Name="PatFechaUnidad" Type="smalldatetime" Mode="In" />
+          <Parameter Name="IdSecretariaGeneral" Type="varchar" Mode="In" />
+          <Parameter Name="IdResponsable" Type="int" Mode="In" />
+          <Parameter Name="PatCantidad" Type="int" Mode="In" />
+          <Parameter Name="PatUbicacion" Type="varchar" Mode="In" />
+          <Parameter Name="PatFoto" Type="varchar" Mode="In" />
+          <Parameter Name="IdInciso" Type="smallint" Mode="In" />
+          <Parameter Name="IdPartidaPrincipal" Type="smallint" Mode="In" />
+          <Parameter Name="IdPartidaParcial" Type="smallint" Mode="In" />
+          <Parameter Name="IdClase" Type="smallint" Mode="In" />
+          <Parameter Name="IdItem" Type="smallint" Mode="In" />
+          <Parameter Name="Precio" Type="decimal" Mode="In" />
+          <Parameter Name="IdOrigen" Type="smallint" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="PeriodoAmortiz" Type="int" Mode="In" />
+          <Parameter Name="InicioAmortiz" Type="int" Mode="In" />
+          <Parameter Name="IdClasificacion" Type="int" Mode="In" />
+          <Parameter Name="IdMotivoBaja" Type="int" Mode="In" />
+          <Parameter Name="Devengado" Type="bit" Mode="In" />
+          <Parameter Name="FisicoContable" Type="bit" Mode="In" />
+          <Parameter Name="IdBienUsoGenerico" Type="int" Mode="In" />
+          <Parameter Name="PatFechaBaja" Type="smalldatetime" Mode="In" />
+          <Parameter Name="MesInicioAmortiz" Type="int" Mode="In" />
+          <Parameter Name="IdUsuarioACargo" Type="int" Mode="In" />
+          <Parameter Name="Partes" Type="smallint" Mode="In" />
+        </Function>
+        <EntityContainer Name="SAFModelStoreContainer">
+          <EntitySet Name="SAF_BIENPATRIMONIO" EntityType="Self.SAF_BIENPATRIMONIO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SAFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SAF_BIENPATRIMONIO">
+          <Key>
+            <PropertyRef Name="IdBienPatrimonio" />
+          </Key>
+          <Property Name="IdBienPatrimonio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatDescrip" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdUnidad" Type="Int32" Nullable="false" />
+          <Property Name="IdTipo" Type="Int32" />
+          <Property Name="PatFechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PatFechaUnidad" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PatFechaBaja" Type="DateTime" Precision="0" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="IdSecretariaGeneral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdResponsable" Type="Int32" Nullable="false" />
+          <Property Name="PatCantidad" Type="Int32" Nullable="false" />
+          <Property Name="PatUbicacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatFoto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdInciso" Type="Int16" />
+          <Property Name="IdPartidaPrincipal" Type="Int16" />
+          <Property Name="IdPartidaParcial" Type="Int16" />
+          <Property Name="IdClase" Type="Int16" />
+          <Property Name="IdItem" Type="Int16" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IdOrigen" Type="Int16" />
+          <Property Name="Etiqueta" Type="Boolean" Nullable="false" />
+          <Property Name="PeriodoAmortiz" Type="Int32" />
+          <Property Name="InicioAmortiz" Type="Int32" />
+          <Property Name="IdClasificacion" Type="Int32" />
+          <Property Name="IdMotivoBaja" Type="Int32" />
+          <Property Name="FechaEtiquetado" Type="DateTime" Precision="0" />
+          <Property Name="Devengado" Type="Boolean" />
+          <Property Name="FisicoContable" Type="Boolean" />
+          <Property Name="IdBienUsoGenerico" Type="Int32" />
+          <Property Name="Ubicado" Type="Boolean" />
+          <Property Name="FechaUbicado" Type="DateTime" Precision="0" />
+          <Property Name="MesInicioAmortiz" Type="Int32" />
+          <Property Name="FechaRelevadoColector" Type="DateTime" Precision="0" />
+          <Property Name="ObservacionesColector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuarioACargo" Type="Int32" />
+          <Property Name="Sincronizado" Type="Boolean" />
+          <Property Name="Partes" Type="Int16" />
+        </EntityType>
+        <EntityContainer Name="SAFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SAF_BIENPATRIMONIO" EntityType="Self.SAF_BIENPATRIMONIO" />
+          <FunctionImport Name="SAF_BIENPATRIMONIO_GetAll" ReturnType="Collection(SAFModel.SAF_BIENPATRIMONIO_GetAll_Result)">
+            <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
+            <Parameter Name="IdTipo" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="FechaDesde" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaHasta" Mode="In" Type="DateTime" />
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="IdEstado" Mode="In" Type="Int32" />
+            <Parameter Name="IdResponsable" Mode="In" Type="Int32" />
+            <Parameter Name="IdInciso" Mode="In" Type="Int32" />
+            <Parameter Name="IdPartidaPrincipal" Mode="In" Type="Int32" />
+            <Parameter Name="IdPartidaParcial" Mode="In" Type="Int32" />
+            <Parameter Name="IdClase" Mode="In" Type="Int32" />
+            <Parameter Name="IdItem" Mode="In" Type="Int32" />
+            <Parameter Name="IdOrigen" Mode="In" Type="Int16" />
+            <Parameter Name="Etiqueta" Mode="In" Type="Int16" />
+            <Parameter Name="IdSecretariaGeneral" Mode="In" Type="String" />
+            <Parameter Name="FechaAltaDesde" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaAltaHasta" Mode="In" Type="DateTime" />
+            <Parameter Name="Ubicado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales" ReturnType="Collection(SAFModel.SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales_Result)" />
+          <FunctionImport Name="SAF_BIENPATRIMONIO_GetById" ReturnType="Collection(SAFModel.SAF_BIENPATRIMONIO_GetById_Result)">
+            <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
+            <Parameter Name="IdBienPatrimoniohasta" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SAF_BIENPATRIMONIO_Upd">
+            <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
+            <Parameter Name="PatDescrip" Mode="In" Type="String" />
+            <Parameter Name="IdTipo" Mode="In" Type="Int32" />
+            <Parameter Name="IdEstado" Mode="In" Type="Int32" />
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="PatFechaUnidad" Mode="In" Type="DateTime" />
+            <Parameter Name="IdSecretariaGeneral" Mode="In" Type="String" />
+            <Parameter Name="IdResponsable" Mode="In" Type="Int32" />
+            <Parameter Name="PatCantidad" Mode="In" Type="Int32" />
+            <Parameter Name="PatUbicacion" Mode="In" Type="String" />
+            <Parameter Name="PatFoto" Mode="In" Type="String" />
+            <Parameter Name="IdInciso" Mode="In" Type="Int16" />
+            <Parameter Name="IdPartidaPrincipal" Mode="In" Type="Int16" />
+            <Parameter Name="IdPartidaParcial" Mode="In" Type="Int16" />
+            <Parameter Name="IdClase" Mode="In" Type="Int16" />
+            <Parameter Name="IdItem" Mode="In" Type="Int16" />
+            <Parameter Name="Precio" Mode="In" Type="Decimal" />
+            <Parameter Name="IdOrigen" Mode="In" Type="Int16" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="PeriodoAmortiz" Mode="In" Type="Int32" />
+            <Parameter Name="InicioAmortiz" Mode="In" Type="Int32" />
+            <Parameter Name="IdClasificacion" Mode="In" Type="Int32" />
+            <Parameter Name="IdMotivoBaja" Mode="In" Type="Int32" />
+            <Parameter Name="Devengado" Mode="In" Type="Boolean" />
+            <Parameter Name="FisicoContable" Mode="In" Type="Boolean" />
+            <Parameter Name="IdBienUsoGenerico" Mode="In" Type="Int32" />
+            <Parameter Name="PatFechaBaja" Mode="In" Type="DateTime" />
+            <Parameter Name="MesInicioAmortiz" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuarioACargo" Mode="In" Type="Int32" />
+            <Parameter Name="Partes" Mode="In" Type="Int16" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SAF_BIENPATRIMONIO_GetAll_Result">
+          <Property Type="Int32" Name="IdBienPatrimonio" Nullable="false" />
+          <Property Type="String" Name="PatDescrip" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="IdUnidad" Nullable="false" />
+          <Property Type="String" Name="PatUbicacion" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="IdTipo" Nullable="true" />
+          <Property Type="DateTime" Name="PatFechaAlta" Nullable="false" Precision="16" />
+          <Property Type="DateTime" Name="PatFechaUnidad" Nullable="false" Precision="16" />
+          <Property Type="DateTime" Name="PatFechaBaja" Nullable="true" Precision="16" />
+          <Property Type="Int32" Name="IdEstado" Nullable="false" />
+          <Property Type="String" Name="IdSecretariaGeneral" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="nombreEstado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreTipo" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="ApeNom" Nullable="false" MaxLength="102" />
+          <Property Type="Int32" Name="PatCantidad" Nullable="false" />
+          <Property Type="String" Name="PatFoto" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="IdInciso" Nullable="true" />
+          <Property Type="Int16" Name="IdPartidaPrincipal" Nullable="true" />
+          <Property Type="Int16" Name="IdPartidaParcial" Nullable="true" />
+          <Property Type="Int16" Name="IdClase" Nullable="true" />
+          <Property Type="Int16" Name="IdItem" Nullable="true" />
+          <Property Type="String" Name="ItemDescrip" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TextoIdPratrimonio" Nullable="true" MaxLength="8000" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="ETIQUETA" Nullable="false" />
+          <Property Type="String" Name="OrigenDescrip" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="puedeTransferirse" Nullable="false" />
+          <Property Type="String" Name="Clasificacion" Nullable="false" MaxLength="150" />
+          <Property Type="Int16" Name="Partes" Nullable="true" />
+          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="32" />
+          <Property Type="Int32" Name="IdUsuarioACargo" Nullable="true" />
+          <Property Type="String" Name="UsuarioACargo" Nullable="false" MaxLength="102" />
+        </ComplexType>
+        <ComplexType Name="SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales_Result">
+          <Property Type="Int32" Name="idResponsable" Nullable="false" />
+          <Property Type="String" Name="ApeNom" Nullable="false" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="SAF_BIENPATRIMONIO_GetById_Result">
+          <Property Type="Int32" Name="IdBienPatrimonio" Nullable="false" />
+          <Property Type="String" Name="PatDescrip" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="IdUnidad" Nullable="false" />
+          <Property Type="String" Name="PatUbicacion" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="IdTipo" Nullable="true" />
+          <Property Type="DateTime" Name="PatFechaAlta" Nullable="false" Precision="16" />
+          <Property Type="DateTime" Name="PatFechaUnidad" Nullable="false" Precision="16" />
+          <Property Type="DateTime" Name="PatFechaBaja" Nullable="true" Precision="16" />
+          <Property Type="Int32" Name="IdEstado" Nullable="false" />
+          <Property Type="String" Name="IdSecretariaGeneral" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="nombreEstado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreTipo" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="ApeNom" Nullable="false" MaxLength="102" />
+          <Property Type="Int32" Name="PatCantidad" Nullable="false" />
+          <Property Type="String" Name="PatFoto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdResponsable" Nullable="false" />
+          <Property Type="Int16" Name="IdInciso" Nullable="true" />
+          <Property Type="Int16" Name="IdPartidaPrincipal" Nullable="true" />
+          <Property Type="Int16" Name="IdPartidaParcial" Nullable="true" />
+          <Property Type="Int16" Name="IdClase" Nullable="true" />
+          <Property Type="Int16" Name="IdItem" Nullable="true" />
+          <Property Type="String" Name="ItemDescrip" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TextoIdPratrimonio" Nullable="true" MaxLength="8000" />
+          <Property Type="Int16" Name="IdOrigen" Nullable="true" />
+          <Property Type="Boolean" Name="ETIQUETA" Nullable="false" />
+          <Property Type="String" Name="OrigenDescrip" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="PeriodoAmortiz" Nullable="false" />
+          <Property Type="Int32" Name="InicioAmortiz" Nullable="false" />
+          <Property Type="Int32" Name="IdClasificacion" Nullable="false" />
+          <Property Type="Int32" Name="IdMotivoBaja" Nullable="false" />
+          <Property Type="String" Name="Clasificacion" Nullable="false" MaxLength="150" />
+          <Property Type="Boolean" Name="Devengado" Nullable="false" />
+          <Property Type="Boolean" Name="FisicoContable" Nullable="false" />
+          <Property Type="Int32" Name="IdBienUsoGenerico" Nullable="true" />
+          <Property Type="Boolean" Name="BajaCalculaAmortizacion" Nullable="false" />
+          <Property Type="Int32" Name="MesInicioAmortiz" Nullable="true" />
+          <Property Type="Int32" Name="IdUsuarioACargo" Nullable="true" />
+          <Property Type="Int16" Name="Partes" Nullable="true" />
+          <Property Type="String" Name="IdExpediente" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NroResolucion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SAFModelStoreContainer" CdmEntityContainer="SAFEntities">
+          <EntitySetMapping Name="SAF_BIENPATRIMONIO">
+            <EntityTypeMapping TypeName="SAFModel.SAF_BIENPATRIMONIO">
+              <MappingFragment StoreEntitySet="SAF_BIENPATRIMONIO">
+                <ScalarProperty Name="IdBienPatrimonio" ColumnName="IdBienPatrimonio" />
+                <ScalarProperty Name="PatDescrip" ColumnName="PatDescrip" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="PatFechaAlta" ColumnName="PatFechaAlta" />
+                <ScalarProperty Name="PatFechaUnidad" ColumnName="PatFechaUnidad" />
+                <ScalarProperty Name="PatFechaBaja" ColumnName="PatFechaBaja" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdSecretariaGeneral" ColumnName="IdSecretariaGeneral" />
+                <ScalarProperty Name="IdResponsable" ColumnName="IdResponsable" />
+                <ScalarProperty Name="PatCantidad" ColumnName="PatCantidad" />
+                <ScalarProperty Name="PatUbicacion" ColumnName="PatUbicacion" />
+                <ScalarProperty Name="PatFoto" ColumnName="PatFoto" />
+                <ScalarProperty Name="IdInciso" ColumnName="IdInciso" />
+                <ScalarProperty Name="IdPartidaPrincipal" ColumnName="IdPartidaPrincipal" />
+                <ScalarProperty Name="IdPartidaParcial" ColumnName="IdPartidaParcial" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
+                <ScalarProperty Name="Etiqueta" ColumnName="Etiqueta" />
+                <ScalarProperty Name="PeriodoAmortiz" ColumnName="PeriodoAmortiz" />
+                <ScalarProperty Name="InicioAmortiz" ColumnName="InicioAmortiz" />
+                <ScalarProperty Name="IdClasificacion" ColumnName="IdClasificacion" />
+                <ScalarProperty Name="IdMotivoBaja" ColumnName="IdMotivoBaja" />
+                <ScalarProperty Name="FechaEtiquetado" ColumnName="FechaEtiquetado" />
+                <ScalarProperty Name="Devengado" ColumnName="Devengado" />
+                <ScalarProperty Name="FisicoContable" ColumnName="FisicoContable" />
+                <ScalarProperty Name="IdBienUsoGenerico" ColumnName="IdBienUsoGenerico" />
+                <ScalarProperty Name="Ubicado" ColumnName="Ubicado" />
+                <ScalarProperty Name="FechaUbicado" ColumnName="FechaUbicado" />
+                <ScalarProperty Name="MesInicioAmortiz" ColumnName="MesInicioAmortiz" />
+                <ScalarProperty Name="FechaRelevadoColector" ColumnName="FechaRelevadoColector" />
+                <ScalarProperty Name="ObservacionesColector" ColumnName="ObservacionesColector" />
+                <ScalarProperty Name="IdUsuarioACargo" ColumnName="IdUsuarioACargo" />
+                <ScalarProperty Name="Sincronizado" ColumnName="Sincronizado" />
+                <ScalarProperty Name="Partes" ColumnName="Partes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_GetAll" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_GetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAFModel.SAF_BIENPATRIMONIO_GetAll_Result">
+                <ScalarProperty Name="IdBienPatrimonio" ColumnName="IdBienPatrimonio" />
+                <ScalarProperty Name="PatDescrip" ColumnName="PatDescrip" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="PatUbicacion" ColumnName="PatUbicacion" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="PatFechaAlta" ColumnName="PatFechaAlta" />
+                <ScalarProperty Name="PatFechaUnidad" ColumnName="PatFechaUnidad" />
+                <ScalarProperty Name="PatFechaBaja" ColumnName="PatFechaBaja" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdSecretariaGeneral" ColumnName="IdSecretariaGeneral" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+                <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+                <ScalarProperty Name="ApeNom" ColumnName="ApeNom" />
+                <ScalarProperty Name="PatCantidad" ColumnName="PatCantidad" />
+                <ScalarProperty Name="PatFoto" ColumnName="PatFoto" />
+                <ScalarProperty Name="IdInciso" ColumnName="IdInciso" />
+                <ScalarProperty Name="IdPartidaPrincipal" ColumnName="IdPartidaPrincipal" />
+                <ScalarProperty Name="IdPartidaParcial" ColumnName="IdPartidaParcial" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="ItemDescrip" ColumnName="ItemDescrip" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="TextoIdPratrimonio" ColumnName="TextoIdPratrimonio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ETIQUETA" ColumnName="ETIQUETA" />
+                <ScalarProperty Name="OrigenDescrip" ColumnName="OrigenDescrip" />
+                <ScalarProperty Name="puedeTransferirse" ColumnName="puedeTransferirse" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="Partes" ColumnName="Partes" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="IdUsuarioACargo" ColumnName="IdUsuarioACargo" />
+                <ScalarProperty Name="UsuarioACargo" ColumnName="UsuarioACargo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAFModel.SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales_Result">
+                <ScalarProperty Name="idResponsable" ColumnName="idResponsable" />
+                <ScalarProperty Name="ApeNom" ColumnName="ApeNom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_GetById" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_GetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAFModel.SAF_BIENPATRIMONIO_GetById_Result">
+                <ScalarProperty Name="IdBienPatrimonio" ColumnName="IdBienPatrimonio" />
+                <ScalarProperty Name="PatDescrip" ColumnName="PatDescrip" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="PatUbicacion" ColumnName="PatUbicacion" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="PatFechaAlta" ColumnName="PatFechaAlta" />
+                <ScalarProperty Name="PatFechaUnidad" ColumnName="PatFechaUnidad" />
+                <ScalarProperty Name="PatFechaBaja" ColumnName="PatFechaBaja" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdSecretariaGeneral" ColumnName="IdSecretariaGeneral" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+                <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+                <ScalarProperty Name="ApeNom" ColumnName="ApeNom" />
+                <ScalarProperty Name="PatCantidad" ColumnName="PatCantidad" />
+                <ScalarProperty Name="PatFoto" ColumnName="PatFoto" />
+                <ScalarProperty Name="IdResponsable" ColumnName="IdResponsable" />
+                <ScalarProperty Name="IdInciso" ColumnName="IdInciso" />
+                <ScalarProperty Name="IdPartidaPrincipal" ColumnName="IdPartidaPrincipal" />
+                <ScalarProperty Name="IdPartidaParcial" ColumnName="IdPartidaParcial" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="ItemDescrip" ColumnName="ItemDescrip" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="TextoIdPratrimonio" ColumnName="TextoIdPratrimonio" />
+                <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
+                <ScalarProperty Name="ETIQUETA" ColumnName="ETIQUETA" />
+                <ScalarProperty Name="OrigenDescrip" ColumnName="OrigenDescrip" />
+                <ScalarProperty Name="PeriodoAmortiz" ColumnName="PeriodoAmortiz" />
+                <ScalarProperty Name="InicioAmortiz" ColumnName="InicioAmortiz" />
+                <ScalarProperty Name="IdClasificacion" ColumnName="IdClasificacion" />
+                <ScalarProperty Name="IdMotivoBaja" ColumnName="IdMotivoBaja" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="Devengado" ColumnName="Devengado" />
+                <ScalarProperty Name="FisicoContable" ColumnName="FisicoContable" />
+                <ScalarProperty Name="IdBienUsoGenerico" ColumnName="IdBienUsoGenerico" />
+                <ScalarProperty Name="BajaCalculaAmortizacion" ColumnName="BajaCalculaAmortizacion" />
+                <ScalarProperty Name="MesInicioAmortiz" ColumnName="MesInicioAmortiz" />
+                <ScalarProperty Name="IdUsuarioACargo" ColumnName="IdUsuarioACargo" />
+                <ScalarProperty Name="Partes" ColumnName="Partes" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+                <ScalarProperty Name="NroResolucion" ColumnName="NroResolucion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_Upd" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_Upd" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

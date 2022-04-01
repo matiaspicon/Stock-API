@@ -1,43 +1,69 @@
-﻿using System;
+﻿using Stock_API.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Data.Objects;
 using System.Web.Http;
-using System.Web.Http.Results;
 
 namespace Stock_API.Controllers
 {
     public class BienesController : ApiController
     {
-        // GET api/values
         
-        public string Get(int codigoID)
+        
+        public BienPatrimonio Get(int id)
         {
-            //peticion a base de datos
-            return "RESPEUSTAS";
+            //peticion a base de datos SP: [dbo].[SAF_BIENPATRIMONIO_GetById]
+           
+            ObjectResult<SAF_BIENPATRIMONIO_GetById_Result> bienEncontrado = new SAFEntities().SAF_BIENPATRIMONIO_GetById(id, null);
+
+            var bien = bienEncontrado.;
+
+            var bienConvertido = new BienPatrimonio()
+            {
+                IdBienPatrimonio = bien.IdBienPatrimonio,
+                IdResponsable = bien.IdResponsable,
+                IdSecretariaGeneral = bien.IdSecretariaGeneral,
+                IdUnidad = bien.IdUnidad,
+                IdUsuarioACargo = bien.IdUsuarioACargo,
+                PatCantidad = bien.PatCantidad,
+                Clasificacion = bien.Clasificacion,
+                Nombre = bien.nombre,
+                PatDescrip = bien.PatDescrip,
+                PatFoto = bien.PatFoto,
+                PatUbicacion = bien.PatUbicacion
+            };
+            return bienConvertido;
         }
 
-        // GET api/values/5
 
-        public string Algo(int id)
+        public List<BienPatrimonio> Get([FromBody] List<int> ids)
         {
-            return "value";
-        }
+            List<BienPatrimonio> bienes = new List<BienPatrimonio>();
 
-        // POST api/values
-        public void Post([FromBody] string value)
-        {
-        }
+            foreach (var id in ids)
+            {
+                ObjectResult<SAF_BIENPATRIMONIO_GetById_Result> bienEncontrado = new SAFEntities().SAF_BIENPATRIMONIO_GetById(id, null);
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+                var bien = bienEncontrado.GetEnumerator().Current;
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+                bienes.Add(new BienPatrimonio()
+                {
+                    IdBienPatrimonio = bien.IdBienPatrimonio,
+                    IdResponsable = bien.IdResponsable,
+                    IdSecretariaGeneral = bien.IdSecretariaGeneral,
+                    IdUnidad = bien.IdUnidad,
+                    IdUsuarioACargo = bien.IdUsuarioACargo,
+                    PatCantidad = bien.PatCantidad,
+                    Clasificacion = bien.Clasificacion,
+                    Nombre = bien.nombre,
+                    PatDescrip = bien.PatDescrip,
+                    PatFoto = bien.PatFoto,
+                    PatUbicacion = bien.PatUbicacion                    
+                });
+            }
+
+
+            return bienes;
         }
     }
 }
