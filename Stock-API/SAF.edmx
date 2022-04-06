@@ -223,17 +223,9 @@
             <Parameter Name="IdUsuarioACargo" Mode="In" Type="Int32" />
             <Parameter Name="Partes" Mode="In" Type="Int16" />
           </FunctionImport>
-          <FunctionImport Name="SAF_BIENPATRIMONIO_Upd_EXTERNO">
-            <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
-            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
-            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
-            <Parameter Name="IdResponsable" Mode="In" Type="Int32" />
-            <Parameter Name="IdClasificacion" Mode="In" Type="Int32" />
-            <Parameter Name="IdUsuarioACargo" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="SAF_UNIDAD_GetCbo_IdResponsable" ReturnType="Collection(SAFModel.SAF_UNIDAD_GetCbo_IdResponsable_Result)" />
           <FunctionImport Name="SEC_USUARIO_GetCbo" ReturnType="Collection(SAFModel.SEC_USUARIO_GetCbo_Result)" />
-          <FunctionImport Name="SAF_BIENPATRIMONIO_Upd_EXTERNO1">
+          <FunctionImport Name="SAF_BIENPATRIMONIO_Upd_EXTERNO">
             <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
             <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
             <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
@@ -495,7 +487,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_Upd_EXTERNO1" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_Upd_EXTERNO" />
+          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_Upd_EXTERNO" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_Upd_EXTERNO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

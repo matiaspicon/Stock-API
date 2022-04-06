@@ -11,7 +11,7 @@ namespace Stock_API.Controllers
         [Key]
         public int Id { get; set; }
         public int IdUnidad { get; set; }
-        public List<int> BienesID { get; set; }
+        public List<String> BienesID { get; set; }
 
     }
 }

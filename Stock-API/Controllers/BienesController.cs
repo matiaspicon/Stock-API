@@ -10,11 +10,11 @@ namespace Stock_API.Controllers
 {
     public class BienesController : ApiController
     {
-        public BienPatrimonio Get(int id)
+        public BienPatrimonio Get(String id)
         {
             //peticion a base de datos SP: [dbo].[SAF_BIENPATRIMONIO_GetById]
            
-            ObjectResult<SAF_BIENPATRIMONIO_GetById_Result> bienEncontrado = new SAFEntities().SAF_BIENPATRIMONIO_GetById(id, null);
+            ObjectResult<SAF_BIENPATRIMONIO_GetById_Result> bienEncontrado = new SAFEntities().SAF_BIENPATRIMONIO_GetById(int.Parse(id), null);
 
             var bien = bienEncontrado.ToArray()[0];
 
@@ -36,13 +36,13 @@ namespace Stock_API.Controllers
         }
 
 
-        public List<BienPatrimonio> Get([FromBody] List<int> ids)
+        public List<BienPatrimonio> Get([FromBody] List<String> ids)
         {
             List<BienPatrimonio> bienes = new List<BienPatrimonio>();
 
             foreach (var id in ids)
             {
-                ObjectResult<SAF_BIENPATRIMONIO_GetById_Result> bienEncontrado = new SAFEntities().SAF_BIENPATRIMONIO_GetById(id, null);
+                ObjectResult<SAF_BIENPATRIMONIO_GetById_Result> bienEncontrado = new SAFEntities().SAF_BIENPATRIMONIO_GetById(int.Parse(id), null);
 
                 var bien = bienEncontrado.ToArray()[0];
 

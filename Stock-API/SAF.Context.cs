@@ -254,35 +254,6 @@ namespace Stock_API
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SAF_BIENPATRIMONIO_Upd", idBienPatrimonioParameter, patDescripParameter, idTipoParameter, idEstadoParameter, idUnidadParameter, patFechaUnidadParameter, idSecretariaGeneralParameter, idResponsableParameter, patCantidadParameter, patUbicacionParameter, patFotoParameter, idIncisoParameter, idPartidaPrincipalParameter, idPartidaParcialParameter, idClaseParameter, idItemParameter, precioParameter, idOrigenParameter, idUsuarioParameter, periodoAmortizParameter, inicioAmortizParameter, idClasificacionParameter, idMotivoBajaParameter, devengadoParameter, fisicoContableParameter, idBienUsoGenericoParameter, patFechaBajaParameter, mesInicioAmortizParameter, idUsuarioACargoParameter, partesParameter);
         }
     
-        public virtual int SAF_BIENPATRIMONIO_Upd_EXTERNO(Nullable<int> idBienPatrimonio, Nullable<int> idUsuario, Nullable<int> idUnidad, Nullable<int> idResponsable, Nullable<int> idClasificacion, Nullable<int> idUsuarioACargo)
-        {
-            var idBienPatrimonioParameter = idBienPatrimonio.HasValue ?
-                new ObjectParameter("IdBienPatrimonio", idBienPatrimonio) :
-                new ObjectParameter("IdBienPatrimonio", typeof(int));
-    
-            var idUsuarioParameter = idUsuario.HasValue ?
-                new ObjectParameter("IdUsuario", idUsuario) :
-                new ObjectParameter("IdUsuario", typeof(int));
-    
-            var idUnidadParameter = idUnidad.HasValue ?
-                new ObjectParameter("IdUnidad", idUnidad) :
-                new ObjectParameter("IdUnidad", typeof(int));
-    
-            var idResponsableParameter = idResponsable.HasValue ?
-                new ObjectParameter("IdResponsable", idResponsable) :
-                new ObjectParameter("IdResponsable", typeof(int));
-    
-            var idClasificacionParameter = idClasificacion.HasValue ?
-                new ObjectParameter("IdClasificacion", idClasificacion) :
-                new ObjectParameter("IdClasificacion", typeof(int));
-    
-            var idUsuarioACargoParameter = idUsuarioACargo.HasValue ?
-                new ObjectParameter("IdUsuarioACargo", idUsuarioACargo) :
-                new ObjectParameter("IdUsuarioACargo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SAF_BIENPATRIMONIO_Upd_EXTERNO", idBienPatrimonioParameter, idUsuarioParameter, idUnidadParameter, idResponsableParameter, idClasificacionParameter, idUsuarioACargoParameter);
-        }
-    
         public virtual ObjectResult<SAF_UNIDAD_GetCbo_IdResponsable_Result> SAF_UNIDAD_GetCbo_IdResponsable()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SAF_UNIDAD_GetCbo_IdResponsable_Result>("SAF_UNIDAD_GetCbo_IdResponsable");
@@ -293,7 +264,7 @@ namespace Stock_API
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SEC_USUARIO_GetCbo_Result>("SEC_USUARIO_GetCbo");
         }
     
-        public virtual int SAF_BIENPATRIMONIO_Upd_EXTERNO1(Nullable<int> idBienPatrimonio, Nullable<int> idUsuario, Nullable<int> idUnidad, Nullable<int> idResponsable, Nullable<int> idUsuarioACargo)
+        public virtual int SAF_BIENPATRIMONIO_Upd_EXTERNO(Nullable<int> idBienPatrimonio, Nullable<int> idUsuario, Nullable<int> idUnidad, Nullable<int> idResponsable, Nullable<int> idUsuarioACargo)
         {
             var idBienPatrimonioParameter = idBienPatrimonio.HasValue ?
                 new ObjectParameter("IdBienPatrimonio", idBienPatrimonio) :
@@ -315,7 +286,7 @@ namespace Stock_API
                 new ObjectParameter("IdUsuarioACargo", idUsuarioACargo) :
                 new ObjectParameter("IdUsuarioACargo", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SAF_BIENPATRIMONIO_Upd_EXTERNO1", idBienPatrimonioParameter, idUsuarioParameter, idUnidadParameter, idResponsableParameter, idUsuarioACargoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SAF_BIENPATRIMONIO_Upd_EXTERNO", idBienPatrimonioParameter, idUsuarioParameter, idUnidadParameter, idResponsableParameter, idUsuarioACargoParameter);
         }
     }
 }

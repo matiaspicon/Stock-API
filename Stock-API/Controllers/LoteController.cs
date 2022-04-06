@@ -9,16 +9,23 @@ namespace Stock_API.Controllers
         // GET: Lote
         public bool Post([FromBody] Lote lote)
         {
-
-            //SAF_RESPONSABLE_BIENPATRIMONIO_GetCbo
-            var resultadoConsulta = new SAFEntities().SAF_UNIDAD_GetCbo_IdResponsable();
-
-            var idResponsable = resultadoConsulta.ToArray().FirstOrDefault(a => a.IdUnidad == lote.IdUnidad).idResponsableBien;
-
-            foreach (var bien in lote.BienesID)
+            try
             {
-                new SAFEntities().SAF_BIENPATRIMONIO_Upd_EXTERNO1(bien, 1, lote.IdUnidad, idResponsable, idResponsable);                
+                //SAF_RESPONSABLE_BIENPATRIMONIO_GetCbo
+                var resultadoConsulta = new SAFEntities().SAF_UNIDAD_GetCbo_IdResponsable();
+
+                var idResponsable = resultadoConsulta.ToArray().FirstOrDefault(a => a.IdUnidad == lote.IdUnidad).idResponsableBien;
+
+                foreach (var bien in lote.BienesID)
+                {
+                    new SAFEntities().SAF_BIENPATRIMONIO_Upd_EXTERNO(int.Parse(bien), 1, lote.IdUnidad, idResponsable, idResponsable);
+                }
             }
+            catch 
+            {
+                return false;
+            }
+            
 
             return true;
         }
