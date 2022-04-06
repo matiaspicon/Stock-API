@@ -172,7 +172,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\CombosController.cs" />
+    <Compile Include="Controllers\UnidadComboController.cs" />
+    <Compile Include="Controllers\UsuarioComboController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Models\BienPatrimonio.cs" />
@@ -212,6 +213,12 @@
       <DependentUpon>SAF.tt</DependentUpon>
     </Compile>
     <Compile Include="SAF_BIENPATRIMONIO_GetById_Result.cs">
+      <DependentUpon>SAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAF_UNIDAD_GetCbo_IdResponsable_Result.cs">
+      <DependentUpon>SAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SEC_USUARIO_GetCbo_Result.cs">
       <DependentUpon>SAF.tt</DependentUpon>
     </Compile>
   </ItemGroup>

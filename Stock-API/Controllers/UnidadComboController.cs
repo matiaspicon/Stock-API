@@ -6,26 +6,22 @@ using System.Web.Http.Results;
 
 namespace Stock_API.Controllers
 {
-    public class CombosController : ApiController
+    public class UnidadComboController : ApiController
     {
-        
         [HttpGet]
-        [ActionName("Responsables")]
         public JsonResult<List<OpcionCombo>> Get()
         {
-
             //SAF_RESPONSABLE_BIENPATRIMONIO_GetCbo
-            var a = new SAFEntities().SAF_BIENPATRIMONIO_GetAllResponsablesPatrimoniales();
-
+            var resultadoConsulta = new SAFEntities().SAF_UNIDAD_GetCbo_IdResponsable();
 
             List<OpcionCombo> opciones = new List<OpcionCombo>();
 
-            foreach( var opcion in a)
+            foreach (var opcion in resultadoConsulta)
             {
                 opciones.Add(new OpcionCombo
                 {
-                    Descripcion = opcion.ApeNom,
-                    Id = opcion.idResponsable
+                    Descripcion = opcion.Nombre,
+                    Id = opcion.IdUnidad
                 });
             }
 

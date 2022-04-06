@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SAFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SAFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SAF_BIENPATRIMONIO">
           <Key>
             <PropertyRef Name="IdBienPatrimonio" />
@@ -105,11 +105,19 @@
           <Parameter Name="IdUsuarioACargo" Type="int" Mode="In" />
           <Parameter Name="Partes" Type="smallint" Mode="In" />
         </Function>
+        <Function Name="SAF_BIENPATRIMONIO_Upd_EXTERNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBienPatrimonio" Type="int" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="In" />
+          <Parameter Name="IdUnidad" Type="int" Mode="In" />
+          <Parameter Name="IdResponsable" Type="int" Mode="In" />
+          <Parameter Name="IdUsuarioACargo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SAF_UNIDAD_GetCbo_IdResponsable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SEC_USUARIO_GetCbo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SAFModelStoreContainer">
           <EntitySet Name="SAF_BIENPATRIMONIO" EntityType="Self.SAF_BIENPATRIMONIO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SAFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -215,6 +223,23 @@
             <Parameter Name="IdUsuarioACargo" Mode="In" Type="Int32" />
             <Parameter Name="Partes" Mode="In" Type="Int16" />
           </FunctionImport>
+          <FunctionImport Name="SAF_BIENPATRIMONIO_Upd_EXTERNO">
+            <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="IdResponsable" Mode="In" Type="Int32" />
+            <Parameter Name="IdClasificacion" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuarioACargo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SAF_UNIDAD_GetCbo_IdResponsable" ReturnType="Collection(SAFModel.SAF_UNIDAD_GetCbo_IdResponsable_Result)" />
+          <FunctionImport Name="SEC_USUARIO_GetCbo" ReturnType="Collection(SAFModel.SEC_USUARIO_GetCbo_Result)" />
+          <FunctionImport Name="SAF_BIENPATRIMONIO_Upd_EXTERNO1">
+            <Parameter Name="IdBienPatrimonio" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="IdUnidad" Mode="In" Type="Int32" />
+            <Parameter Name="IdResponsable" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuarioACargo" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SAF_BIENPATRIMONIO_GetAll_Result">
           <Property Type="Int32" Name="IdBienPatrimonio" Nullable="false" />
@@ -298,6 +323,15 @@
           <Property Type="Int16" Name="Partes" Nullable="true" />
           <Property Type="String" Name="IdExpediente" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="NroResolucion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SAF_UNIDAD_GetCbo_IdResponsable_Result">
+          <Property Type="Int32" Name="IdUnidad" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="idResponsableBien" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SEC_USUARIO_GetCbo_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="ApeNom" Nullable="false" MaxLength="102" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -444,6 +478,24 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_Upd" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_Upd" />
+          <FunctionImportMapping FunctionImportName="SAF_UNIDAD_GetCbo_IdResponsable" FunctionName="SAFModel.Store.SAF_UNIDAD_GetCbo_IdResponsable">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAFModel.SAF_UNIDAD_GetCbo_IdResponsable_Result">
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idResponsableBien" ColumnName="idResponsableBien" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SEC_USUARIO_GetCbo" FunctionName="SAFModel.Store.SEC_USUARIO_GetCbo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAFModel.SEC_USUARIO_GetCbo_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="ApeNom" ColumnName="ApeNom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SAF_BIENPATRIMONIO_Upd_EXTERNO1" FunctionName="SAFModel.Store.SAF_BIENPATRIMONIO_Upd_EXTERNO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
