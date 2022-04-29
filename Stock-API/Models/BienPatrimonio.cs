@@ -7,7 +7,7 @@ namespace Stock_API.Models
 {
     public class BienPatrimonio
     {
-        public int IdBienPatrimonio { get; set; }
+        public string IdBienPatrimonio { get; set; }
         public string PatDescrip { get; set; }
         public int IdUnidad { get; set; }
         public string IdSecretariaGeneral { get; set; }

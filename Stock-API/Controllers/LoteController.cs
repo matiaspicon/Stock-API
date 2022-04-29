@@ -7,14 +7,14 @@ namespace Stock_API.Controllers
     public class LoteController : ApiController
     {
         // GET: Lote
-        public bool Post([FromBody] Lote lote)
+        public Lote Post([FromBody] Lote lote)
         {
             try
             {
                 //SAF_RESPONSABLE_BIENPATRIMONIO_GetCbo
                 var resultadoConsulta = new SAFEntities().SAF_UNIDAD_GetCbo_IdResponsable();
 
-                var idResponsable = resultadoConsulta.ToArray().FirstOrDefault(a => a.IdUnidad == lote.IdUnidad).idResponsableBien;
+                var idResponsable  = resultadoConsulta.ToArray().FirstOrDefault(a => a.IdUnidad == lote.IdUnidad).idResponsableBien;
 
                 foreach (var bien in lote.BienesID)
                 {
@@ -23,11 +23,11 @@ namespace Stock_API.Controllers
             }
             catch 
             {
-                return false;
+                return lote;
             }
-            
 
-            return true;
+            lote.Id = 200;
+            return lote;
         }
     }
 }
